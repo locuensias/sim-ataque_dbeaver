@@ -34,13 +34,17 @@ Para ejecutar el cliente, se debe construir una imagen personalizada (en este ca
 
 * Cree un `Dockerfile` con el siguiente contenido:
     # Dockerfile ejemplo DBeaver
-    FROM ubuntu:22.04
-    ENV DEBIAN_FRONTEND=noninteractive
-    RUN apt-get update && apt-get install -y libgtk-3-0 libwebkit2gtk-4.0-37 default-jre wget --no-install-recommends && rm -rf /var/lib/apt/lists/*
-    COPY dbeaver-ce_*.deb /tmp/dbeaver.deb
-    RUN dpkg -i /tmp/dbeaver.deb
-    CMD ["/usr/share/dbeaver-ce/dbeaver"]
+        FROM ubuntu:22.04
+        ENV DEBIAN_FRONTEND=noninteractive
+        RUN apt-get update && apt-get install -y libgtk-3-0 libwebkit2gtk-4.0-37 default-jre wget --no-install-recommends && rm -rf /var/lib/apt/lists/*
+        COPY dbeaver-ce_*.deb /tmp/dbeaver.deb
+        RUN dpkg -i /tmp/dbeaver.deb
+        CMD ["/usr/share/dbeaver-ce/dbeaver"]
     ```
+
+
+
+    
 * Coloque el `Dockerfile` y el archivo `.deb` en una carpeta y construya la imagen:
 
     docker build -t mi-dbeaver-local .
