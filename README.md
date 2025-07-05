@@ -1,14 +1,16 @@
+Este codigo lo que hace es simular un ataque entre una base de datos y un cliente a traves de contaminar paquetes mysql dentro de una red controlada ya que se usaran contenedores docker. 
 
 ## Requisitos Previos
 
 * Docker instalado en un sistema operativo Linux.
 * Git instalado en la máquina local.
+* Una base de datos MYSQL
 
 ## Descripción del Entorno
 
 Este proyecto simula una arquitectura de red de tres nodos utilizando contenedores Docker, comunicados a través de una red virtual privada:
 1.  **Contenedor Servidor (`mysql-server`):** Ejecuta una instancia de MySQL Server.
-2.  **Contenedor Cliente (`dbeaver-client`):** Ejecuta el cliente de base de datos DBeaver.
+2.  **Contenedor Cliente (`dbeaver-client`):** Ejecuta el cliente de base de datos DBeaver. Para este codigo se uso ese cliente pero "en teoria" debe de funcionar para cualquier cliente que se comunique con una base de datos MYSQL.
 3.  **Contenedor Atacante (`scapy-attacker`):** Ejecuta los scripts de Scapy para realizar los ataques MitM.
 
 ## Instrucciones de Instalación y Ejecución
@@ -28,7 +30,7 @@ El servidor se lanza utilizando la imagen oficial de MySQL y un script `init.sql
    
 
 **b) Construir la imagen del Cliente DBeaver:**
-Para ejecutar el cliente, se debe construir una imagen personalizada. Se necesita el archivo de instalación `.deb` de DBeaver, que se puede descargar desde el [sitio web oficial de DBeaver](https://dbeaver.io/download/).
+Para ejecutar el cliente, se debe construir una imagen personalizada (en este caso Dbeaver). Se necesita el archivo de instalación `.deb` de DBeaver, que se puede descargar desde el [sitio web oficial](https://dbeaver.io/download/).
 
 * Cree un `Dockerfile` con el siguiente contenido:
     # Dockerfile ejemplo DBeaver
