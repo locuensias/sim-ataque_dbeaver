@@ -40,11 +40,8 @@ Para ejecutar el cliente, se debe construir una imagen personalizada (en este ca
         COPY dbeaver-ce_*.deb /tmp/dbeaver.deb
         RUN dpkg -i /tmp/dbeaver.deb
         CMD ["/usr/share/dbeaver-ce/dbeaver"]
-    ```
 
-
-
-    
+  
 * Coloque el `Dockerfile` y el archivo `.deb` en una carpeta y construya la imagen:
 
     docker build -t mi-dbeaver-local .
