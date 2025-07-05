@@ -78,7 +78,7 @@ nano Dockerfile
     [Edición del script de ataque]
 * Lance el contenedor atacante, montando el script que desea ejecutar:
             
-  ej1: `attack_fuzz_random.py`
+ej1: `attack_fuzz_random.py`
         
         cd ~/scapy-attack
 
@@ -96,9 +96,8 @@ ej2: `attack_force_quit.py`
         docker run -it --rm --name scapy-attacker --network tarea-net --cap-add=NET_ADMIN --sysctl net.ipv4.ip_forward=1 -v "$(pwd)/attack_force_quit.py:/usr/src/app/attack_force_quit.py" scapy-attacker bash
     
 * Una vez dentro del contenedor del atacante, ejecute el script:
-
   ```bash
-  python3 attack_force_quit.py
+      python3 attack_force_quit.py
 
 
 ## Autores
