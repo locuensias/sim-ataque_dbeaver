@@ -78,21 +78,21 @@ nano Dockerfile
     [Edición del script de ataque]
 * Lance el contenedor atacante, montando el script que desea ejecutar:
             
-        ej1: `attack_fuzz_random.py`
+  ej1: `attack_fuzz_random.py`
         
-    cd ~/scapy-attack
+        cd ~/scapy-attack
 
-    docker run -it --rm --name scapy-attacker --network tarea-net --cap-add=NET_ADMIN --sysctl net.ipv4.ip_forward=1 -v "$(pwd)/attack_fuzz_random.py:/usr/src/app/attack_fuzz_random.py" scapy-attacker bash
+        docker run -it --rm --name scapy-attacker --network tarea-net --cap-add=NET_ADMIN --sysctl net.ipv4.ip_forward=1 -v "$(pwd)/attack_fuzz_random.py:/usr/src/app/attack_fuzz_random.py" scapy-attacker bash
     
 * Dentro del contenedor del atacante, ejecute el script:
     python3 attack_fuzz_random.py
 
 
-        ej2: `attack_force_quit.py`
+  ej2: `attack_force_quit.py`
     
-    cd ~/scapy-attack
+        cd ~/scapy-attack
 
-    docker run -it --rm --name scapy-attacker --network tarea-net --cap-add=NET_ADMIN --sysctl net.ipv4.ip_forward=1 -v "$(pwd)/attack_force_quit.py:/usr/src/app/attack_force_quit.py" scapy-attacker bash
+        docker run -it --rm --name scapy-attacker --network tarea-net --cap-add=NET_ADMIN --sysctl net.ipv4.ip_forward=1 -v "$(pwd)/attack_force_quit.py:/usr/src/app/attack_force_quit.py" scapy-attacker bash
     
 * Dentro del contenedor del atacante, ejecute el script:
     python3 attack_force_quit.py
